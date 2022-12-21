@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/robsyme/schema-demo/master/nextflow_schema.json",
+    "title": "robsyme/schema-demo pipeline parameters",
+    "description": "",
+    "type": "object",
+    "definitions": {
+        "input_options": {
+            "title": "Input options",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "greetee": {
+                    "type": "string",
+                    "default": "Ryan",
+                    "description": "Name of person to greet"
+                }
+            },
+            "required": [
+                "greetee"
+            ]
+        },
+        "configuration_options": {
+            "title": "Configuration options",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "help": {
+                    "type": "string",
+                    "default": "false",
+                    "description": "Print help text"
+                },
+                "monochrome_logs": {
+                    "type": "boolean",
+                    "description": "Remove colour from logs"
+                },
+                "schema_ignore_params": {
+                    "type": "string",
+                    "description": "Comma-separated list of params to ignore",
+                    "default": "null"
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_options"
+        },
+        {
+            "$ref": "#/definitions/configuration_options"
+        }
+    ]
+}
